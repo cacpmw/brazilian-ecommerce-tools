@@ -11,7 +11,7 @@ export default function Ean() {
       ean += Math.floor(Math.random() * 10).toString();
     }
 
-    let checkDigit = calculateCheckDigit(ean);
+    const checkDigit = calculateCheckDigit(ean);
     ean += checkDigit;
     return ean;
   }
@@ -19,7 +19,7 @@ export default function Ean() {
   function calculateCheckDigit(ean: string) {
     let sum = 0;
     for (let i = 0; i < ean.length; i++) {
-      let digit = parseInt(ean[i], 10);
+      const digit = parseInt(ean[i], 10);
       if (i % 2 === 0) {
         sum += digit;
       } else {
@@ -27,7 +27,7 @@ export default function Ean() {
       }
     }
 
-    let mod = sum % 10;
+    const mod = sum % 10;
     return mod === 0 ? 0 : 10 - mod;
   }
 
