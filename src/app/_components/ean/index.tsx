@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Ean() {
   const notify = () => toast("Copiado para a área de transferência.");
@@ -42,7 +42,7 @@ export default function Ean() {
   }
 
   return (
-    <div className="flex flex-col h-screen items-center justify-center gap-y-2">
+    <div className="flex flex-col min-h-screen items-center justify-center gap-y-2">
       <p>EAN: {ean}</p>
       <div className="flex flex-row gap-x-4">
         <button
