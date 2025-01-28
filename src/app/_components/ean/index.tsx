@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 export default function Ean() {
+  const notify = () => toast("Copiado para a área de transferência.");
+
   const [ean, setEan] = useState("");
 
   function generateEAN() {
@@ -32,10 +35,10 @@ export default function Ean() {
   }
 
   function handleCreateEan() {
-    setEan(generateEAN());
-  }
-  function handleClipboard() {
-    navigator.clipboard.writeText(ean);
+    const newEan = generateEAN();
+    setEan(newEan);
+    navigator.clipboard.writeText(newEan);
+    notify();
   }
 
   return (
@@ -49,14 +52,8 @@ export default function Ean() {
         >
           Novo Codigo
         </button>
-        <button
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          type="button"
-          onClick={handleClipboard}
-        >
-          Copiar Codigo
-        </button>
       </div>
+      <ToastContainer />
     </div>
   );
 }
